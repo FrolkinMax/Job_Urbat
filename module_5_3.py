@@ -6,6 +6,8 @@
 # 3 __add__(self, value) - увеличивает кол-во этажей на переданное значение value, возвращает сам объект self.
 # 4 __radd__(self, value), __iadd__(self, value) - работают так же как и __add__ (возвращают результат его вызова).
 
+# Задача "Нужно больше этажей":
+
 class House:  # класс
     def __init__(self, name, number_of_floors):
         self.name = name
@@ -25,33 +27,69 @@ class House:  # класс
         return (f"Название: {self.name}, кол-во этажей: {self.number_of_floors}.")
 
     def __eq__(self, other): # оператор для сравнения равенства этажей
-        return int(self.number_of_floors) == other
-
+        if isinstance(other, House):
+            return self.number_of_floors == other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors == other
+    # def __eq__(self, other): # оператор для сравнения равенства этажей без учета принадлежности к классу
+    #     return int(self.number_of_floors) == other
     def __lt__(self, other):
-        return self.number_of_floors < other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors < other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors < other
 
     def __le__(self, other):
-        return self.number_of_floors <= other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors <= other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors <= other
 
     def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors > other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors > other
 
     def __ge__(self, other):
-        return self.number_of_floors >= other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors >= other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors >= other
 
     def __ne__(self, other):
-        return self.number_of_floors != other.number_of_floors
+        if isinstance(other, House):
+            return self.number_of_floors != other.number_of_floors
+        elif isinstance(other, int):
+            return self.number_of_floors != other
+
+    # def __add__(self, value): возможный вариант записи
+    #     self.number_of_floors = int(self.number_of_floors) + int(value)
+    #     return (f'{self.name}, кол-во этажей: {self.number_of_floors + value}')
 
     def __add__(self, value):
         if not isinstance(value, int):
             return NotImplemented
         return House(self.name, self.number_of_floors + value)
 
-    def __radd__(self, value):
-        return House(self.name, self.number_of_floors + value)
+
+    def __radd__(self, value): # возможный вариант записи
+        return self.__add__(value)
 
     def __iadd__(self, value):
-        return House(self.name, self.number_of_floors + value)
+        return self.__add__(value)
+
+    # def __iadd__(self, value): возможный вариант записи
+    #     if not isinstance(value, int):
+    #         return NotImplemented
+    #     self.number_of_floors += value
+    #     return self
+
+# Для более точной логики работы методов __eq__, __add__  и других методов сравнения и арифметики перед выполняемыми
+# действиями лучше убедиться в принадлежности к типу при помощи функции isinstance:
+# isinstance(other, int) - other указывает на объект типа int.
+# isinstance(other, House) - other указывает на объект типа House.
+
 
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
