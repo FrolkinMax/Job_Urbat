@@ -42,8 +42,8 @@ print(House.houses_history)
 # всех созданных объектов House.
 #
 # 2. Метод __new__
-# python
-# Копировать код
+#
+#
 # def __new__(cls, *args, **kwargs):
 #     if cls.houses_history is []:
 #         cls.houses_history = super().__new__()
