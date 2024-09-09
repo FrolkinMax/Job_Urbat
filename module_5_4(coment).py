@@ -35,14 +35,12 @@ print(House.houses_history)
 #
 # 1. Определение класса House
 #
-#
 # class House:
 #     houses_history = []
 # houses_history — это атрибут класса House, представляющий собой список. Этот список предназначен для хранения истории
 # всех созданных объектов House.
 #
 # 2. Метод __new__
-#
 #
 # def __new__(cls, *args, **kwargs):
 #     if cls.houses_history is []:
@@ -64,8 +62,7 @@ print(House.houses_history)
 # Возвращается экземпляр класса House.
 #
 # 3. Метод __init__
-# python
-# Копировать код
+#
 # def __init__(self, name, number_of_floors, *args, **kwargs):
 #     self.name = name
 #     self.number_of_floors = number_of_floors
@@ -78,16 +75,14 @@ print(House.houses_history)
 # self.args = args и self.kwargs = kwargs — сохраняются дополнительные позиционные и именованные аргументы.
 #
 # 4. Метод __del__
-# python
-# Копировать код
+#
 # def __del__(self):
 #     print(f'{self.name} снесён, но он останется в истории')
 # __del__ — это деструктор, который вызывается при удалении объекта. Здесь выводится сообщение о том, что дом был
 # снесён, но его имя остаётся в истории.
 #
 # 5. Пример использования класса House
-# python
-# Копировать код
+#
 # h1 = House('ЖК Эльбрус', 10)
 # print(House.houses_history)
 # h2 = House('ЖК Акация', 20)
@@ -97,8 +92,7 @@ print(House.houses_history)
 # Создаются три объекта класса House, каждый из которых добавляет своё имя в список houses_history.
 # После создания каждого объекта выводится текущий список houses_history.
 # 6. Удаление объектов
-# python
-# Копировать код
+# 
 # del h2
 # del h3
 #
