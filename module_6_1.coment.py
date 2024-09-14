@@ -86,29 +86,38 @@ class Predator(Animal):
 class Flower(Plant):
 
     def __init__(self, name):
-        super().__init__(name)
+        super().__init__(name) # Используем инициализацию базового класса Plant
 
 class Fruit(Plant):
     # У каждого объекта Fruit должен быть атрибут edible = True (переопределить при наследовании)
     def __init__(self, name):
-        super().__init__(name)
-        self.edible = True
+        super().__init__(name) # Используем инициализацию базового класса Plant
+        self.edible = True # Фрукты съедобны
 
 
+# Проверка программы
 a1 = Predator('Волк с Уолл-Стрит')
 a2 = Mammal('Хатико')
 p1 = Flower('Цветик семицветик')
 p2 = Fruit('Заводной апельсин')
 
+# Вывод имен животных и растений
 print(a1.name)
 print(p1.name)
 
-print(a1.alive)
-print(a2.fed)
+# Проверка атрибутов
+print(a1.alive)  # Жив ли Волк с Уолл-Стрит
+print(a2.fed)    # Сытость Хатико
+
+# Хищник пытается съесть цветок
 a1.eat(p1)
+# Млекопитающее ест фрукт
 a2.eat(p2)
-print(a1.alive)
-print(a2.fed)
+
+# Проверка результатов
+print(a1.alive)  # Жив ли Волк с Уолл-Стрит после еды
+print(a2.fed)    # Сытость Хатико после еды
+
 # Объяснение:
 # Классы Animal и Plant: Базовые классы, содержащие общие атрибуты для всех животных и растений соответственно.
 # Классы Mammal и Predator: Наследуются от Animal, содержат метод eat(self, food), который проверяет,
