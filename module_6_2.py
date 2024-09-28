@@ -12,7 +12,7 @@ class Vehicle:
     def get_model(self) -> str:  # возвращает строку: "Модель: <название модели транспорта>"
         return f"Модель: {self.__model}"
 
-    def get_horsepower(self) -> int:  # возвращает строку: "Мощность двигателя: <мощность>"
+    def get_horsepower(self) -> str:  # возвращает строку: "Мощность двигателя: <мощность>"
         return f"Мощность двигателя: {self.__engine_power}"
 
     def get_color(self) -> str:  # возвращает строку: "Цвет: <цвет транспорта>"
