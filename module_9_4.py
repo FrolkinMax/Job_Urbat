@@ -11,8 +11,9 @@ first = 'Мама мыла раму'
 second = 'Рамена мало было'
 
 # Решение:
-func_v1 = lambda list_1, list_2: list_1 == list_2
-result = list(map(func_v1, first, second))
+print(list(map(lambda x, y: x == y, first, second)))
+# func_v1 = lambda list_1, list_2: list_1 == list_2
+# result = list(map(func_v1, first, second))
 
 # Пример выполнения кода:
 print(result)
